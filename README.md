@@ -37,7 +37,7 @@ npm install
 
 Start server:
 ```bash
- node server.io.js
+node server.io.js
 ```
 Reset all queu:
 
