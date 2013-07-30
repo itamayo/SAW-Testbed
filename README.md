@@ -14,14 +14,14 @@ HOW-To
 ===========
 
 Install node.js all dependecies:
-
- npm install
-
+```javascript
+npm install
+```
 
 Start server:
-
+```javascript
  node server.io.js
-
+```
 Reset all queu:
 
 http://ip:5000/reset
