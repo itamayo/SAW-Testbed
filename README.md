@@ -24,17 +24,19 @@ Start server:
 ```
 Reset all queu:
 
+```javascript
 http://ip:5000/reset
-
+```
 Add new job:
-
+```javascript
 http://ip:5000/addjob/?job=name&scripts=2.js
-
+```
 Add hardware resource to server :
-
+```javascript
 http://ip:5000/add.html
-
+```
 Start Saw :
-
+```javascript
 http://ip:5000/start
 
+```
