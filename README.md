@@ -31,29 +31,29 @@ This testbed use some nice code : http://github.com/bunions1/matrixMultiplyGpu
 ## Quick Start
 
 Install node.js all dependencies:
-```javascript
+```bash
 npm install
 ```
 
 Start server:
-```javascript
+```bash
  node server.io.js
 ```
 Reset all queu:
 
-```javascript
+```url
 http://ip:5000/reset
 ```
 Add new job:
-```javascript
+```url
 http://ip:5000/addjob/?job=name&scripts=2.js
 ```
 Add hardware resource to server :
-```javascript
+```url
 http://ip:5000/add.html
 ```
 Start Saw :
-```javascript
+```url
 http://ip:5000/start
 
 ```
