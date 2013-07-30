@@ -1,0 +1,59 @@
+<html>
+<head><title></title>
+<script type="text/javascript" src="./webgl-utils.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="scripts/m1.js"></script>
+<script src="scripts/m2.js"></script>
+<script>
+var ws = io.connect(window.location.hostname);
+    console.log(ws);
+var _taskid="";
+
+ws.on('message',function(data){
+	console.log("test");
+});
+// ws.on('connection', function (data) {
+//       console.log("connected");
+//       ws.emit("ready",null);
+// });
+
+ws.on('getready', function (data) {
+      ws.emit("ready");
+});
+ws.on('tasktodo', function (data) {
+        console.log("barruan");
+        var data = JSON.parse(data);
+        var scripturl=data.script;
+        var img=data.img;
+   
+      
+        _taskid=data.taskid;
+       
+        var c=document.getElementById('sylvester');
+        if (c==null) {
+             script=document.createElement("script");
+             script.id="sylvester";
+             script.src='scripts/sylvester.js';
+             document.head.appendChild(script);
+        }
+        
+        script=document.createElement("script");
+        script.id="inyectedjs";
+        script.src=scripturl;
+        document.head.appendChild(script);
+        
+});
+
+
+        function generateData() {
+          var value = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+          return {
+            id: (new Date() / 1000) + "-" + value + "-" + (Math.floor(Math.random() * (1000 - 1 + 1)) + 1),
+            value: value,
+          };
+        }
+</script>
+</head>
+<body>
+    <div id="text"></div>
+    </html>

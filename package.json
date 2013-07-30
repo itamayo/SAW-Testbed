@@ -1,0 +1,17 @@
+{
+    "name": "distribution",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+      "express": "~2.5.8",
+      "ejs": "~0.7.1",
+      "socket.io": "~0.9.6",
+      "log4js":"0.6.6",
+      "mongoose":"3.6.15",
+      "mongoose-schema-extend":"0.1.4",
+      "semaphore":"1.0.1"
+  },
+  "engines": {
+    "node": "~0.6.x"
+  }
+}
