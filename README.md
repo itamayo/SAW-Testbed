@@ -13,7 +13,7 @@ beneﬁt from the hardware resources of its big user community.
 HOW-To
 ===========
 
-Install node.js all dependecies:
+Install node.js all dependencies:
 ```javascript
 npm install
 ```
