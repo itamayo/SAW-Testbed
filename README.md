@@ -14,8 +14,8 @@ beneﬁt from the hardware resources of its big user community.
 
 ## REQUISITE
 
- -> node.js
- -> mongodb
+ -> node.js \n
+ -> mongodb \n
 
 Install node.js all dependencies:
 ```javascript
