@@ -15,12 +15,12 @@ HOW-To
 
 Install node.js all dependecies:
 
-# npm install
+ npm install
 
 
 Start server:
 
-# node server.io.js
+ node server.io.js
 
 Reset all queu:
 
