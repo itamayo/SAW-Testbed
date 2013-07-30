@@ -19,7 +19,7 @@ beneﬁt from the hardware resources of its big user community.
  * Distribute large jobs
  * Use GPU for complex calculations
  * Enhance server-side infrastructure
- 
+ * Tested at smart-phone, tablets and pc (web browsed)
 
 
 ## Requisite
