@@ -36,7 +36,7 @@ app.listen(port, function () {
 
 var start_time = 0;
 var end_time = 0;
-
+var clients=[];
 app.get('/reset', function (req, res) {
     var distrub = new dist.initDistribution();
     distrub.reset();
@@ -58,6 +58,7 @@ io.sockets.on('connection', function (connection) {
 
 
     connection.client_id = utile.makeid();
+    clients.push(connection);
     console.log(' Connection count ' + clients.length);
 
 
