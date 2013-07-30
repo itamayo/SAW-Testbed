@@ -3,7 +3,7 @@ SAW-Testbed
 
 Testbed for paper: "SaW, Social Distributed Web-based Computing for Hardware-accelerated Image Analysis"
 
-Our deployed SaW solution works over a client-server architecture (Figure 1). On the server side there is a SaW
+Our deployed SaW solution works over a client-server architecture On the server side there is a SaW
 Scalable Server (S3) which manages a server cluster in order to provide a consistent, scalable and unique service front-end
 to the clients. It deals with balancing the load through the different available servers. The SaW client side is completely
 Web browser oriented to be executed on a connected device such as PCs, smartphones or tablets. SaW offers the Web
