@@ -10,8 +10,12 @@ Web browser oriented to be executed on a connected device such as PCs, smartphon
 service providers an API to enhance their social services with seamless background image analysis tasks by means of taking
 beneﬁt from the hardware resources of its big user community.
 
-HOW-To
-===========
+#HOW-TO
+
+## REQUISITE
+
+ -> node.js
+ -> mongodb
 
 Install node.js all dependencies:
 ```javascript
