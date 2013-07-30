@@ -39,7 +39,7 @@ Start server:
 ```bash
 node server.io.js
 ```
-Reset all queu:
+Reset queue:
 
 ```url
 http://ip:5000/reset
