@@ -12,7 +12,8 @@ Web browser oriented to be executed on a connected device such as PCs, smartphon
 service providers an API to enhance their social services with seamless background image analysis tasks by means of taking
 beneﬁt from the hardware resources of its big user community.
 
-
+To test our system we have used a matrix multiplication (m1=1024x1024)*(m2=1024x1024) based on graphics hardware accelerations that brings WebGL.
+This testbed use some nice code : http://github.com/bunions1/matrixMultiplyGpu 
 
 ## Features
  
