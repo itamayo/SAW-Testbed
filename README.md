@@ -44,7 +44,11 @@ Set work resource:
 ```url
 http://ip:5000/changetask?taskname=cl_matrix_mult.js
 ```
+or :
 
+```url
+http://ip:5000/changetask?taskname=1.js`
+```
 Reset queue:
 
 ```url
