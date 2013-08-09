@@ -45,6 +45,11 @@ app.listen(port, function () {
 var start_time = 0;
 var end_time = 0;
 var clients=[];
+app.get('/createdb', function (req, res) {
+    var distrub = new dist.initDistribution();
+    distrub.createdb(req.query.numTask,req.query.taskname);
+    res.send('DB '+req.query.numTask+' task created');
+});
 app.get('/reset', function (req, res) {
     var distrub = new dist.initDistribution();
     distrub.reset();

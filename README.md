@@ -54,9 +54,9 @@ Reset queue:
 ```url
 http://ip:5000/reset
 ```
-Add new job:
+Create new collection of jobs:
 ```url
-http://ip:5000/addjob/?job=name&scripts=2.js
+http://ip:5000/createdb?numTask=20&taskname=1.js
 ```
 Add hardware resource to server :
 ```url
@@ -67,3 +67,10 @@ Start Saw :
 http://ip:5000/start
 
 ```
+## Important Note
+
+The 1.js task does a matrix multiplication through webgl , 
+cl_matrix_mult.js does with webcl.
+
+We used a local servers to testbed, for trying yourself it will be necessary to change add.html sources; servers variable.
+For simple test it is not need to work-balance at server so with localhost will be fine.

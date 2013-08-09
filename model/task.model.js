@@ -95,21 +95,38 @@ TaskSchema.statics.changeTask = function (taskname) {
         })
     });
 };
+TaskSchema.statics.createdb = function (_task_num,_taskname) {
+ 
+ var task_num=_task_num;
+ var taskname=_taskname;
+
+  this.find(function (err,docs){
+     docs.forEach(function (doc) {
+            
+            doc.remove();
+            
+        })
+     for (i=0;i<task_num;i++){
+                task1=new TaskSchemaModel();
+                task1.id="sfjskdf"+i;
+                task1.client_id="";
+                task1.script="scripts/"+taskname;
+                task1.img="frame.png";
+                task1.status="not-assigned";
+                task1.save();
+            }
+  });
+
+  
+ 
+};
 
 TaskSchemaModel = mongoose.model("TaskSchema", TaskSchema);
 
 document_model_for_mimetype = function (mimetype) {
     return TaskSchema;
 };
-// for (i=0;i<20;i++){
-//  task1=new TaskSchemaModel();
-//  task1.id="sfjskdf"+i;
-//  task1.client_id="";
-//  task1.script="scripts/1.js";
-//  task1.img="frame.png";
-//  task1.status="not-assigned";
-//  task1.save();
-// }
+
 exports.version = '0.1.0';
 
 exports.TaskSchema = TaskSchemaModel;
