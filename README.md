@@ -72,5 +72,4 @@ http://ip:5000/start
 The 1.js task does a matrix multiplication through webgl , 
 cl_matrix_mult.js does with webcl.
 
-We used a local servers to testbed, for trying yourself it will be necessary to change add.html sources; servers variable.
-For simple test it is not need to work-balance at server so with localhost will be fine.
+We used a local servers to testbed, if you want to tested it will be necessary  change the add.html file; servers variable. Just for a simple test  is not need to work-balance at server so with localhost will be fine.
