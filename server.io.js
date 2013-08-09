@@ -4,8 +4,16 @@ var express = require('express'),
     dist = require('./lib/distributionModule'),
     io = require('socket.io').listen(app);
 
-// Configuration
 
+app.use(function noCachePlease(req, res, next) {
+    
+      res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+      res.header("Pragma", "no-cache");
+      res.header("Expires", 0);
+    
+
+    next();
+  });
 app.configure(function () {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
@@ -42,6 +50,11 @@ app.get('/reset', function (req, res) {
     distrub.reset();
     res.send('DB reseted');
 });
+app.get('/changetask', function (req, res) {
+    var distrub = new dist.initDistribution();
+    distrub.changetask(req.query.taskname);
+    res.send('task changed');
+});
 app.get('/start', function (req, res) {
     start_time = new Date().getTime();
     io.sockets.emit('getready', {
@@ -54,10 +67,10 @@ io.sockets.on('connection', function (connection) {
     
     var distribution = new dist.initDistribution();
 
-    console.log(' Connection ' + connection.remoteAddress);
+    console.log(' Connection ' + connection.manager.handshaken[connection.id].address.address);
 
 
-    connection.client_id = utile.makeid();
+    connection.client_id = connection.manager.handshaken[connection.id].address.address;
     clients.push(connection);
     console.log(' Connection count ' + clients.length);
 
@@ -79,9 +92,12 @@ io.sockets.on('connection', function (connection) {
     connection.on('taskFinished', function (message) {
 
         data = JSON.parse(message);
+        connection.timeend=new Date().getTime();
+        console.log(connection.timestart-connection.timeend);
         distribution.setFinishTask(data.taskid, function () {
             if (!distribution.finished) {
                 distribution.addTask2Client(connection.client_id, function (dat) {
+                    connection.timestart=new Date().getTime();
                     var json = JSON.parse(dat);
                     connection.emit('tasktodo', JSON.stringify({
                         taskid: json.taskid,

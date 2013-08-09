@@ -86,6 +86,16 @@ TaskSchema.statics.reset = function (_client_id, task_id) {
     });
 };
 
+TaskSchema.statics.changeTask = function (taskname) {
+    var task = this.find(
+      function (err, docs) {;
+        docs.forEach(function (doc) {
+            doc.script = "scripts/"+taskname;
+            doc.save();
+        })
+    });
+};
+
 TaskSchemaModel = mongoose.model("TaskSchema", TaskSchema);
 
 document_model_for_mimetype = function (mimetype) {
