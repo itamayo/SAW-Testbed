@@ -1,0 +1,76 @@
+<html>
+<head><title></title>
+<script type="text/javascript" src="./webgl-utils.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+var ws = io.connect(window.location.hostname);
+    console.log(ws);
+var _taskid="";
+var servers=["","192.168.10.18:5000","192.168.10.2:5000","192.168.15.200:5000"];
+ws.on('message',function(data){
+	console.log("test");
+});
+// ws.on('connection', function (data) {
+//       console.log("connected");
+//       ws.emit("ready",null);
+// });
+
+ws.on('getready', function (data) {
+      ws.emit("ready");
+});
+ws.on('tasktodo', function (data) {
+        
+        var data = JSON.parse(data);
+        var scripturl=data.script;
+        var img=data.img;
+    	ser= Math.floor((Math.random()*3)+1);
+        servers=["","192.168.10.18:5000","192.168.10.2:5000","192.168.15.200:5000"]; 
+      	var server="http://"+servers[ser]+"/";
+        // var c=document.getElementById('matrix1');
+        // var c2=document.getElementById('matrix2');
+        // if (c!=null)document.head.removeChild(c);
+        // if (c2!=null)document.head.removeChild(c2);
+        // script=document.createElement("script");
+        // script.id="matrix1";
+        // script.src=server1+'scripts/m1.js';
+        // document.head.appendChild(script);
+        // script=document.createElement("script");
+        // script.id="matrix2";
+        // script.src=server2+'scripts/m2.js';
+        // document.head.appendChild(script);
+
+        
+        _taskid=data.taskid;
+       if (data.script=="scripts/1.js"){
+        var c=document.getElementById('sylvester');
+        if (c==null) {
+             script=document.createElement("script");
+             script.id="sylvester";
+             script.src='scripts/sylvester.js';
+             document.head.appendChild(script);
+        }
+      }
+        var c=document.getElementById('inyectedjs');
+        if(c!=null)document.head.removeChild(c);
+             script=document.createElement("script");
+             script.id="inyectedjs";
+             script.src=server+scripturl;
+             document.head.appendChild(script);
+     
+        
+});
+
+
+        function generateData() {
+          var value = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+          return {
+            id: (new Date() / 1000) + "-" + value + "-" + (Math.floor(Math.random() * (1000 - 1 + 1)) + 1),
+            value: value,
+          };
+        }
+</script>
+</head>
+<body>
+    <div id="text"></div>
+    </html>
