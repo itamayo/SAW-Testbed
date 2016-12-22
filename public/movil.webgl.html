@@ -1,0 +1,20 @@
+<script type="text/javascript" src="./webgl-utils.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<video id="bideaok" src="/tanyas.mp4" loop autoplay controls></video>
+<script>
+setInterval(function(){
+ var c=document.getElementById('sylvester');
+        if (c==null) {
+             script=document.createElement("script");
+             script.id="sylvester";
+             script.src='scripts/sylvester.js';
+             document.head.appendChild(script);
+        }
+        var c=document.getElementById('inyectedjs');
+        if(c!=null)document.head.removeChild(c);
+             script=document.createElement("script");
+             script.id="inyectedjs";
+             script.src="http://192.168.10.2:5000/scripts/1.js";
+             document.head.appendChild(script);
+},10000);
+</script>

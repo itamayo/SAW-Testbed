@@ -334,9 +334,13 @@ Matrix.resizeGlContext = function(width, height){
   canvas.height = height;
 
   var gl = null;
-  gl = canvas.getContext("webkit-3d");
-  if(null == gl)
-      gl = canvas.getContext("moz-webgl");
+  for (var i=0; i<4; i++)
+        {
+           gl = canvas.getContext(["webgl","experimental-webgl","moz-webgl","webkit-3d"][i])
+           if (gl){
+              break;
+            }
+         }
   if(null == gl){
           $("body").html("\
             <span>WebGL is required, below are instructinons to enable WebGL for Safari and Firefox</span><br/>\
